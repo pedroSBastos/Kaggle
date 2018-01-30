@@ -13,3 +13,10 @@ for(i in seq(4)){
   instruments <- append(instruments,tables[[i]][1])
 }
 instruments <- unlist(instruments)
+instruments <- gsub("([A-Za-z]+).*\n.*", "\\1", instruments)
+instruments <- gsub("\\(.*\\)","",instruments)
+instruments <- gsub("/", " " ,instruments)
+instruments <- unlist(strsplit(instruments, " "))
+instruments <- instruments[nchar(instruments)>2]
+#eleminar duplicados
+#add vocals

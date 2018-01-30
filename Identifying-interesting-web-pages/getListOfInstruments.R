@@ -18,5 +18,13 @@ instruments <- gsub("\\(.*\\)","",instruments)
 instruments <- gsub("/", " " ,instruments)
 instruments <- unlist(strsplit(instruments, " "))
 instruments <- instruments[nchar(instruments)>2]
-#eleminar duplicados
-#add vocals
+instruments <- unique(instruments)
+
+vocal <- c("vocal")
+
+generos <- readLines("C:\\Users\\asus\\Desktop\\kaggle\\Bands\\generes.txt")
+
+know <- append(instruments,vocal)
+know <- append(know, generos)
+know <- unique(know)
+know <- tolower(know)
